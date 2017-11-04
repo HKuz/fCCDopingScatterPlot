@@ -1,0 +1,83 @@
+// Google fonts
+@import url(https://fonts.googleapis.com/css?family=Cabin+Condensed);
+
+// Background image from www.pexels.com
+
+// Variables
+$headerFonts: 'Helvetica Neue';
+$textFonts: 'Cabin Condensed', 'Helvetica Neue', sans-serif;
+$backgroundImg: 'https://dl.dropboxusercontent.com/s/sn2i4g9qj4am1i6/bike-silhouette.jpeg';
+$green: green;
+$red: red;
+$black: #000;
+$white: #fff;
+$darkGray: #93a1a1;
+
+// Mixins
+@mixin borderRad($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// CSS
+body {
+  font-family: $textFonts;
+  background-image: url($backgroundImg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.chartBlock {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 800px;
+  background-color: $white;
+  opacity: 0.7;
+  border: 2px solid $darkGray;
+  @include borderRad(10px);
+
+  .header {
+    font-family: $headerFonts;
+    margin-bottom: -20px;
+    p {
+      font-size: 0.4em;
+    }
+  }
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: $black;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: $black;
+}
+
+.doped {
+  fill: $red;
+}
+
+.clean {
+  fill: $green;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  color: $white;
+  background-color: darken($darkGray, 30%);
+  opacity: 0;
+  @include borderRad(5px);
+}
+
+.footer {
+  font-size: 12px;
+  margin: 10px 10px 15px;
+}
